@@ -15,28 +15,32 @@
     <p id="result">Result</p>
 
     <script>
-        function playGame(playerChoice) {
+        function playRound(playerSelection, computerSelection) {
+            playerSelection = playerSelection.toLowerCase(); // make player put case-insensitive
             const choices = ["rock", "paper", "scissors"];
-            const computerChoice = choices[Math.floor(Math.random() * 3)];
-
-            playerChoice = playerChoice.toLowerCase();
-
-            if (choices.includes(playerChoice)) {
-                if (playerChoice === computerChoice) {
-                    document.getElementById("result").innerText = "It's a tie! Try again.";
-                } else if (
-                    (playerChoice === "rock" && computerChoice === "scissors") ||
-                    (playerChoice === "paper" && computerChoice === "rock") ||
-                    (playerChoice === "scissors" && computerChoice === "paper")
-                ) {
-                    document.getElementById("result").innerText = `You win! Computer chose ${computerChoice}.`;
-                } else {
-                    document.getElementById("result").innerText = `Computer wins! Computer chose ${computerChoice}.`;
-                }
-            } else {
-                document.getElementById("result").innerText = "Invalid choice. Please select Rock, Paper, or Scissors.";
+            if (!choices.include(playerSelection)) {
+                return "Invalid choice! Please select Rock, Paper or Scissors";
             }
+
+
+            if (playerSelection === computerSelection)  {
+                return "It's a Tie" + playerSelection + "match" + computerSelection + ".";
+            
+               } else if (
+                    (playerSelection === "rock" && computerSelection === "scissors") ||
+                    (playerSelection === "paper" && computerSelection === "rock") ||
+                    (playerSelection === "scissors" && computerSelection === "paper")
+                ) {
+                    return "You Win!" + playerSelection + "beats" + computerSelection + ".";
+                }else {
+                    return "You Lose!" + computerSelection + "beats" + playerSelection + ".";
+                } 
         }
+
+    function game() {
+        let playerScore = 0;
+        let computerScore = 0;
+    }
     </script>
 </body>
 </html>
