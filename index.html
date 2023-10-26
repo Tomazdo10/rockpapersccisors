@@ -44,9 +44,28 @@
         for (let i = 0; i <= 5; i++){
             const playerSelection = prompt("Enter your Choice: Rock, Paper, Scissor!");
             const computerSelection = choices[Math.floor(Math.random() * 3)];
-            
+            const roundResult = playRound(playerSelection, computerSelection);
+            console.log(playRound);
+
+            if (roundResult.includes("You Win!")) {
+                playerScore++;
+            }else if(roundResult.includes("You Lose!")) {
+            computerScore++;
+
         }
     }
+
+    if (playerScore > computerScore) {
+        console.log("You Win the Game");
+    } else if(computerScore > playerScore) {
+        console.log("Computer Wins the Game!");
+    }else {
+        console.log("It's a Tie the Game ends in Tie!");
+    }
+}
+
+game();
+
     </script>
 </body>
 </html>
