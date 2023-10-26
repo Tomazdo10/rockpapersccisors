@@ -8,38 +8,35 @@
 </head>
 <body>
     <h1>Rock, Paper, Scissors Game</h1>
-    <p>Chose you move: Rock, Paper or Scissors</p>
-    <button onclick="playGame ('rock')">Rock</button>
-    <button onclick="playGame ('paper')">Paper</button>
-    <button onclick="playGame ('scissors')">Scissors</button>
+    <p>Choose your move: Rock, Paper, or Scissors</p>
+    <button onclick="playGame('rock')">Rock</button>
+    <button onclick="playGame('paper')">Paper</button>
+    <button onclick="playGame('scissors')">Scissors</button>
     <p id="result">Result</p>
 
     <script>
-        function playGame(playerChoice){
-            const choices = ["rock", "paper", "scissor"];
-            const computerChoices = [Math.floor(Math.random() * 3)];
+        function playGame(playerChoice) {
+            const choices = ["rock", "paper", "scissors"];
+            const computerChoice = choices[Math.floor(Math.random() * 3)];
 
-            playerChoice === playerChoice.toLowerCase();
+            playerChoice = playerChoice.toLowerCase();
 
-
-        if (choices.Includes(playerChoice)) {
-            if (playerChoice === computerChoice) {
-                document.getElementById("result").innerText = "It's a Tie! Try Again!";
-            } else if(
-            (playerChoice === "rock" && computerChoice === "scissors") ||
-            (playerChoice === "paper" && computerChoice === "rock") ||
-            (playerChoice === "scissors" && computerChoice === "paper")
-            ) {
-                document.getElementById("result").innerText = 'You Win! Computer Chose ${computerChoice}.';
+            if (choices.includes(playerChoice)) {
+                if (playerChoice === computerChoice) {
+                    document.getElementById("result").innerText = "It's a tie! Try again.";
+                } else if (
+                    (playerChoice === "rock" && computerChoice === "scissors") ||
+                    (playerChoice === "paper" && computerChoice === "rock") ||
+                    (playerChoice === "scissors" && computerChoice === "paper")
+                ) {
+                    document.getElementById("result").innerText = `You win! Computer chose ${computerChoice}.`;
+                } else {
+                    document.getElementById("result").innerText = `Computer wins! Computer chose ${computerChoice}.`;
+                }
             } else {
-                document.getElementById("result").innerText = 'Computer Win! Computer Chose ${computerChoice}.';
-        }
-
-    } else {
-        document.getElementById("result").innerText = "Invalid choice. Please select Rock, Paper or Scissors.";
-    }
+                document.getElementById("result").innerText = "Invalid choice. Please select Rock, Paper, or Scissors.";
+            }
         }
     </script>
-
 </body>
 </html>
